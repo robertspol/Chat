@@ -1,0 +1,30 @@
+$breakpoints: (
+    xxsmall: "(min-width: 360px)",
+    xxsmall-landscape: "(min-width: 360px) and (orientation: landscape)",
+    xsmall: "(min-width: 460px)",
+    xsmall-landscape: "(min-width: 460px) and (orientation: landscape)",
+    small: "(min-width: 640px)",
+    small-landscape: "(min-width: 640px) and (orientation: landscape)",
+    medium: "(min-width: 800px)",
+    medium-landscape: "(min-width: 800px) and (orientation: landscape)",
+    large: "(min-width: 1024px)",
+    large-landscape: "(min-width: 1024px) and (orientation: landscape)",
+    xlarge: "(min-width: 1200px)",
+    xlarge-landscape: "(min-width: 1200px) and (orientation: landscape)",
+    xxlarge: "(min-width: 1440px)",
+    xxlarge-landscape: "(min-width: 1440px) and (orientation: landscape)",
+);
+
+@mixin mq($breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+
+    @if($size) {
+        @media #{$size} {
+            @content;
+        }
+    }
+
+    @else {
+        @error '"#{$breakpoint} - Nieznana wielkość"';
+    }
+}

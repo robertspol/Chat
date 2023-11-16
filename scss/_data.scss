@@ -1,0 +1,19 @@
+@mixin input {
+    height: 1.5rem;
+    padding: 0 .5vh;
+    font-size: .9rem;
+    border-radius: .6vh;
+}
+
+@mixin user-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vh;
+    padding: 0 .3vh;
+    border-radius: 1vh;
+    background-color: #030;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}

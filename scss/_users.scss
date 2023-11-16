@@ -1,0 +1,91 @@
+.container.users {
+    width: 100vw;
+    height: 100vh;
+
+    @include mq(xxsmall-landscape) {
+        font-size: 1.2rem;
+    }
+}
+
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    border-bottom: .3vh solid #555;
+}
+
+.user {
+    display: flex;
+
+    a {
+        color: #0f0;
+    }
+
+    img {
+        width: 5vh;
+        height: 5vh;
+        margin-right: 1vh;
+        border-radius: 50%;
+    }
+
+    .is-active {
+        font-size: .8rem;
+    }
+}
+
+.logout {
+    @include user-button;
+}
+
+.account-delete {
+    @include user-button;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh 0;
+
+    input {
+        @include input;
+        flex-grow: 1;
+        margin-right: .3vh;
+        font-size: .9rem;
+    }
+
+    button {
+        width: 1.5rem;
+    }
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 1vh;
+        color: #fff;
+    }
+
+    .name-dot {
+        display: flex;
+        align-items: center;
+    }
+
+    .dot {
+        width: 1vh;
+        height: 1vh;
+        margin-left: 2vh;
+        background-color: #0f0;
+        border-radius: 50%;
+
+        &.offline {
+            background-color: #ccc;
+        }
+    }
+}
