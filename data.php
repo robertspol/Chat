@@ -13,7 +13,7 @@ while ($row = $result->fetch_assoc()) {
         $res = 'Nie ma żadnych wiadomości';
     }
 
-    (strlen($res) > 28) ? $msg = substr($res, 0, 23) . '...' : $msg = $res;
+    (strlen($res) > 23) ? $msg = substr($res, 0, 23) . '...' : $msg = $res;
 
     $you = '';
 
