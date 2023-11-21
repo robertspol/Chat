@@ -45,7 +45,7 @@ accountDelete.addEventListener('click', () => {
     } else return;
 });
 
-// setInterval(() => {
+setInterval(() => {
 fetch('users_backend.php')
     .then(res => {
         if (res.status === 200) {
@@ -63,4 +63,4 @@ fetch('users_backend.php')
         console.error(err);
         alert(err);
     });
-// }, 500);
+}, 500);
