@@ -1,12 +1,49 @@
 <?php
 session_start();
+require_once 'connect.php';
+
+try {
+    $mysqli = new mysqli($host, $db_user, $db_password, $db_name);
+
+    if ($mysqli->connect_errno > 0) throw new Exception();
+
+    $mysqli = new mysqli($host, $db_user, $db_password, $db_name);
+
+    $sql1 = "CREATE TABLE IF NOT EXISTS users (
+            user_id int AUTO_INCREMENT PRIMARY KEY,
+            unique_id int,
+            first_name text,
+            last_name text,
+            email text,
+            password text,
+            img text,
+            status text
+        )";
+
+    if (!$mysqli->query($sql1)) {
+        echo 'Error during table creation';
+    }
+
+    $sql2 = "CREATE TABLE IF NOT EXISTS messages (
+            msg_id int AUTO_INCREMENT PRIMARY KEY,
+            incoming_id int,
+            outgoing_name int,
+            message text
+        )";
+
+    if (!$mysqli->query($sql2)) {
+        echo 'Error during table creation';
+    }
+
+    $mysqli->close();
+} catch (Exception) {
+    echo 'Nie połączono z bazą danych.';
+}
 
 if (isset($_SESSION['unique_id'])) {
     header('Location: users.php');
     exit();
 }
-
-require_once 'connect.php';
 
 if (isset($_POST['last-name'])) {
     $all_correct = true;
